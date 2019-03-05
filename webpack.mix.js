@@ -13,16 +13,15 @@ let tailwindcss = require('tailwindcss');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-   .extract(['vue', 'lodash', 'axios']);
-
-
-mix.sass('resources/sass/app.scss', 'public/css')
+   .extract(['vue', 'lodash', 'axios'])
+   .sass('resources/sass/app.scss', 'public/css')
    .options({
    		processCssUrls: false,
 	    postCss: [
 			tailwindcss('./tailwind.js'),
 		]
-	});
+	})
+   .browserSync('http://127.0.0.1:8000');
 
 if (mix.inProduction()) {
     mix.version();
